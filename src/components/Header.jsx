@@ -7,7 +7,7 @@ const Header = ({
     setPresupuesto, 
     isValidPResupuesto, 
     setIsValidPresupuesto,
-    spends 
+    spends
   }) => {
   return (
     <header>

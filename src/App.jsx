@@ -90,7 +90,8 @@ function App() {
         modalAnimate={ modalAnimate }
         setModalAnimate={ setModalAnimate }
         saveSpend={ saveSpend }
-        editSpend={editSpend}
+        editSpend={ editSpend }
+        setEditSpend={ setEditSpend }
         />}
     </div>
   )
