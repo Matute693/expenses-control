@@ -28,7 +28,7 @@ const IconsDirectionary = {
   subscripciones: iconSubscriptions
 }
 
-const Gasto = ({ spend, setEditSpend }) => {
+const Gasto = ({ spend, setEditSpend, deleteSpend }) => {
     const { category, name, quantity, id, date } = spend;
 
     const leadingActions = () => (
@@ -42,7 +42,7 @@ const Gasto = ({ spend, setEditSpend }) => {
         <TrailingActions>
           <SwipeAction
             destructive={true}
-            onClick={() => console.info('swipe action triggered')}
+            onClick={() => deleteSpend(id)}
           >
             Delete
           </SwipeAction>

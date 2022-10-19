@@ -52,6 +52,11 @@ function App() {
     }, 500);
   }
 
+  const deleteSpend = id => {
+    const updatedSpend = spends.filter( item => item.id !== id );
+    setSpends(updatedSpend)
+  }
+
   return (
     <div className={ modal ? 'fijar' : ''}>
       <Header
@@ -67,6 +72,7 @@ function App() {
             <ListadoGastos 
               spends={ spends }
               setEditSpend={ setEditSpend }
+              deleteSpend={ deleteSpend }
               />
           </main>
           <div className="nuevo-gasto">
