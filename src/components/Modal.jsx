@@ -1,14 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import closeModalButton from './../img/cerrar.svg'
 import Message from './message';
 
-const Modal = ({ setModal, modalAnimate, setModalAnimate, saveSpend }) => {
+const Modal = ({ 
+    setModal, 
+    modalAnimate, 
+    setModalAnimate, 
+    saveSpend, 
+    editSpend 
+}) => {
   
   const [ message, setMessage ] = useState('')
-
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('');
   const [category, setCategory] = useState('');
+  const [date, setDate] = useState('');
+  const [id, setId] = useState('');
+
+  useEffect(() => {
+    if(Object.keys(editSpend).length > 0 ) {
+      setName(editSpend.name),
+      setQuantity(editSpend.quantity),
+      setCategory(editSpend.category)
+      setId(editSpend.id),
+      setDate(editSpend.date)
+    }
+  }, [])
 
   const hiddeModal = () => {
     setModalAnimate(false);
@@ -29,7 +46,7 @@ const Modal = ({ setModal, modalAnimate, setModalAnimate, saveSpend }) => {
       return;
     }
 
-    saveSpend({name, quantity, category})
+    saveSpend({name, quantity, category, id, date})
   }
 
   return (
@@ -44,7 +61,7 @@ const Modal = ({ setModal, modalAnimate, setModalAnimate, saveSpend }) => {
       </div>
 
       <form onSubmit={handleSubmit} className={`formulario ${modalAnimate ? "animar" : 'cerrar'}`}>
-          <legend>NUEVO GASTO</legend>
+          <legend>{editSpend.name ? 'Editar gasto'  : 'Nuevo gasto'}</legend>
           {message && <Message type='error'>{ message }</Message> }
           
           <div className="campo">
@@ -74,16 +91,16 @@ const Modal = ({ setModal, modalAnimate, setModalAnimate, saveSpend }) => {
                 <option value="ahorro">Ahorro</option>
                 <option value="comida">Comida</option>
                 <option value="casa">Casa</option>
-                <option value="gastos varios">Gastos varios</option>
+                <option value="gastos">Gastos varios</option>
                 <option value="ocio">Ocio</option>
-                <option value="varios">Salud</option>
+                <option value="salud">Salud</option>
                 <option value="subscripciones">Subscripciones</option>
               </select>
           </div>
 
           <input 
             type="submit"
-            value='Añadir gasto' />
+            value={editSpend.name ? 'Editar ' : 'Añadir'} />
       </form>
       
     </div>

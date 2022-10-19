@@ -45,6 +45,7 @@ h2 {
 
 header {
     background-color: var(--azul);
+    width: 100%;
 }
 
 header h1 {
