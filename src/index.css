@@ -45,7 +45,6 @@ h2 {
 
 header {
     background-color: var(--azul);
-    width: 100%;
 }
 
 header h1 {
@@ -60,6 +59,7 @@ header h1 {
 .text-white {
     color: white;
 }
+
 
 .formulario {
     width: 95%;
@@ -212,7 +212,7 @@ header h1 {
 }
 .contenido-presupuesto p.negativo,
 .contenido-presupuesto p.negativo span {
-    color: red;
+    color: #DC2626;
 }
 .contenido-presupuesto span {
     font-weight: 900;

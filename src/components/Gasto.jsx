@@ -49,25 +49,25 @@ const Gasto = ({ spend, setEditSpend, deleteSpend }) => {
       </TrailingActions>
     )
   return (
-    <SwipeableList>
-      <SwipeableListItem
-      leadingActions={leadingActions()}
-      trailingActions={trailingActions()}>
-        <div className='gasto sombra'>
+      <SwipeableList>
+        <SwipeableListItem
+          leadingActions={leadingActions()}
+          trailingActions={trailingActions()}>
+          <div className='gasto sombra'>
             <div className='contenido-gasto'>
-              <img 
-                src={IconsDirectionary[category]} 
+              <img
+                src={IconsDirectionary[category]}
                 alt="" />
-                <div className='descripcion-gasto'>
-                    <p className='nombre-gasto'>{ category.toUpperCase() }</p>
-                    <p className='categoria'>{ name }</p>
-                    <p className='fecha-gasto'> Agregado el: {''} { dateFormatter(date) }</p>
-                </div>
+              <div className='descripcion-gasto'>
+                <p className='nombre-gasto'>{category.toUpperCase()}</p>
+                <p className='categoria'>{name}</p>
+                <p className='fecha-gasto'> Agregado el: {''} {dateFormatter(date)}</p>
+              </div>
             </div>
-                <p className="cantidad-gasto">${ quantity }</p>
-        </div>
-      </SwipeableListItem>
-    </SwipeableList>
+            <p className="cantidad-gasto">${quantity}</p>
+          </div>
+        </SwipeableListItem>
+      </SwipeableList>
   )
 }
 
